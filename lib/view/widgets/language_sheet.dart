@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/view/screens/splash/splash_screen.dart';
-import 'package:shareedu_app/view/screens/start/start_screen.dart';
-import 'package:shareedu_app/view/screens/web_view_screen/web_view_screen.dart';
 import '../../constant/styles/colors.dart';
 import '../../constant/varibles/global_varible.dart';
 import '../../data/localData/local_database.dart';
@@ -80,19 +78,11 @@ changeLangeSheet(BuildContext context) {
                               .changeLanguage(const Locale('ar_EG'), context);
                           Language().changeDirection();
                           Navigator.pop(context);
-                          if (Get.currentRoute == '/WebViewScreen' ||
-                              (Get.currentRoute == '/' &&
-                                  LocalDatabase.isUserAuthenticated() ==
-                                      true)) {
+                          if (LocalDatabase.isUserAuthenticated()) {
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
-                              builder: (context) => WebViewScreen(
-                                pageUrl: currentTitle, title: currentTitle.tr))
-                            );
-
-                            // Get.off(() => const SplashScreen());
-                            // Get.to(() => WebViewScreen(
-                            //     pageUrl: currentTitle, title: currentTitle.tr));
+                              builder: (context) => getFirstScreen(LocalDatabase.getUserIndex()),
+                            ));
                           }
                         },
                       ),
@@ -117,17 +107,11 @@ changeLangeSheet(BuildContext context) {
                               .changeLanguage(const Locale('en_US'), context);
                           Language().changeDirection();
                           Navigator.pop(context);
-                          if ((Get.currentRoute == '/' &&
-                                  LocalDatabase.isUserAuthenticated() ==
-                                      true) ||
-                              Get.currentRoute == '/WebViewScreen') {
+                          if (LocalDatabase.isUserAuthenticated()) {
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
-                              builder: (context) => SplashScreen(),
+                              builder: (context) => getFirstScreen(LocalDatabase.getUserIndex()),
                             ));
-                            // Get.off(() => const SplashScreen());
-                            // Get.to(() => WebViewScreen(
-                            //     pageUrl: currentTitle, title: currentTitle.tr));
                           }
                         },
                       ),

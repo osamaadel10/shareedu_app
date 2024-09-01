@@ -28,12 +28,10 @@ class SplashScreen extends StatelessWidget {
   }
 }
 
-String screen = "";
 Widget getFirstScreen(int? userIndex) {
   switch (userIndex) {
     case 1:
       {
-        screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.employeePage,
           title: 'staffServices'.tr,
@@ -41,7 +39,6 @@ Widget getFirstScreen(int? userIndex) {
       }
     case 2:
       {
-        screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.studentPage,
           title: 'studentServices'.tr,
@@ -49,7 +46,6 @@ Widget getFirstScreen(int? userIndex) {
       }
     case 3:
       {
-        screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.parentPage,
           title: 'parentServices'.tr,
@@ -57,7 +53,6 @@ Widget getFirstScreen(int? userIndex) {
       }
     case 4:
       {
-        screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.employeePage,
           title: 'staffServices'.tr,
