@@ -13,46 +13,57 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: AnimatedSplashScreen(
-        backgroundColor:backgroundColor ,
-        splash: Image.asset("images/logo.png",fit: BoxFit.cover,),
-        splashIconSize: MediaQuery.sizeOf(context).width*0.7,
+        backgroundColor: backgroundColor,
+        splash: Image.asset(
+          "images/logo.png",
+          fit: BoxFit.cover,
+        ),
+        splashIconSize: MediaQuery.sizeOf(context).width * 0.7,
         splashTransition: SplashTransition.fadeTransition,
         nextScreen: getFirstScreen(LocalDatabase.getUserIndex()),
-        animationDuration:const Duration(seconds: 1),
+        animationDuration: const Duration(seconds: 1),
         duration: 2,
       ),
     );
   }
 }
- String screen = "";
- Widget getFirstScreen(int? userIndex) {
-    switch (userIndex) {
-      case 1:
-      screen = 'web';
+
+String screen = "";
+Widget getFirstScreen(int? userIndex) {
+  switch (userIndex) {
+    case 1:
+      {
+        screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.employeePage,
           title: 'staffServices'.tr,
         );
-      case 2:
-      screen = 'web';
+      }
+    case 2:
+      {
+        screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.studentPage,
           title: 'studentServices'.tr,
         );
-      case 3:
-      screen = 'web';
+      }
+    case 3:
+      {
+        screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.parentPage,
           title: 'parentServices'.tr,
         );
-      case 4:
-      screen = 'web';
+      }
+    case 4:
+      {
+        screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.employeePage,
           title: 'staffServices'.tr,
         );
-      default:
-        return const StartScreen();
-    }
+      }
+    default:
+      return const StartScreen();
   }
-
+}

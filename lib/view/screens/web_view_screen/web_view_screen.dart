@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/constant/varibles/global_varible.dart';
 import 'package:shareedu_app/data/localData/local_database.dart';
+import 'package:shareedu_app/view/screens/login/login_screen.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
 import 'package:shareedu_app/view/widgets/app_bar.dart';
 import 'package:shareedu_app/view/widgets/language_sheet.dart';
@@ -65,9 +66,8 @@ class WebViewScreenState extends State<WebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-        webpage = true;
-        currentUrl = widget.pageUrl;
-        currentTitle = widget.title;
+    currentUrl = widget.pageUrl;
+    currentTitle = widget.title;
     return WillPopScope(
       onWillPop: () async {
         if (webViewController != null) {
@@ -117,7 +117,8 @@ class WebViewScreenState extends State<WebViewScreen> {
               onWebViewCreated: (controller) {
                 webViewController = controller;
               },
-              androidOnPermissionRequest: (controller, origin, resources) async {
+              androidOnPermissionRequest:
+                  (controller, origin, resources) async {
                 return PermissionRequestResponse(
                   resources: resources,
                   action: PermissionRequestResponseAction.GRANT,
@@ -154,7 +155,7 @@ class WebViewScreenState extends State<WebViewScreen> {
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 2.w),
             decoration: BoxDecoration(
-              color: Colors.white,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: primaryColor, width: 2)),
             child: Row(
@@ -232,7 +233,8 @@ class WebViewScreenState extends State<WebViewScreen> {
     switch (index) {
       case 2:
         if (widget.isGuestPage) {
-          Get.offAll(()=> const StartScreen());
+          Get.offAll(() => const StartScreen());
+          Get.to(() => const LoginScreen());
         } else {
           showConfirmationDialog(
             context,

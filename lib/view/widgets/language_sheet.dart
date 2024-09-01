@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/view/screens/splash/splash_screen.dart';
+import 'package:shareedu_app/view/screens/start/start_screen.dart';
 import 'package:shareedu_app/view/screens/web_view_screen/web_view_screen.dart';
 import '../../constant/styles/colors.dart';
-import '../../constant/urls/urls.dart';
 import '../../constant/varibles/global_varible.dart';
 import '../../data/localData/local_database.dart';
 import 'button.dart';
@@ -80,15 +80,19 @@ changeLangeSheet(BuildContext context) {
                               .changeLanguage(const Locale('ar_EG'), context);
                           Language().changeDirection();
                           Navigator.pop(context);
-                          print(Get.currentRoute);
+                          if (Get.currentRoute == '/WebViewScreen' ||
+                              (Get.currentRoute == '/' &&
+                                  LocalDatabase.isUserAuthenticated() ==
+                                      true)) {
+                            Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
+                              builder: (context) => WebViewScreen(
+                                pageUrl: currentTitle, title: currentTitle.tr))
+                            );
 
-                            if (screen == 'web' ||
-                              Get.currentRoute == '/WebViewScreen') {
-                            Get.off(
-                                () =>const SplashScreen()); 
-                            Get.to(() => WebViewScreen(
-                                pageUrl: AppUrls.employeePage,
-                                title: 'staffServices'.tr));
+                            // Get.off(() => const SplashScreen());
+                            // Get.to(() => WebViewScreen(
+                            //     pageUrl: currentTitle, title: currentTitle.tr));
                           }
                         },
                       ),
@@ -113,14 +117,17 @@ changeLangeSheet(BuildContext context) {
                               .changeLanguage(const Locale('en_US'), context);
                           Language().changeDirection();
                           Navigator.pop(context);
-                          print(Get.currentRoute);
-                          if (screen == 'web' ||
+                          if ((Get.currentRoute == '/' &&
+                                  LocalDatabase.isUserAuthenticated() ==
+                                      true) ||
                               Get.currentRoute == '/WebViewScreen') {
-                            Get.off(
-                                () =>const SplashScreen());
-                            Get.to(() => WebViewScreen(
-                                pageUrl: AppUrls.employeePage,
-                                title: 'staffServices'.tr));
+                            Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
+                              builder: (context) => SplashScreen(),
+                            ));
+                            // Get.off(() => const SplashScreen());
+                            // Get.to(() => WebViewScreen(
+                            //     pageUrl: currentTitle, title: currentTitle.tr));
                           }
                         },
                       ),
