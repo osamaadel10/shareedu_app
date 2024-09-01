@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "262240356212",
+    "project_id": "riadelsaalhen",
+    "storage_bucket": "riadelsaalhen.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262240356212:android:f76b418bd9a4b265818e21",
+        "android_client_info": {
+          "package_name": "com.example.shareedu_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD89oXgGGrSn90iwqy1XHOLGl4hJgRTEH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262240356212:android:ff5a1cf59d3fcf6f818e21",
+        "android_client_info": {
+          "package_name": "com.shareedu.ms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD89oXgGGrSn90iwqy1XHOLGl4hJgRTEH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
