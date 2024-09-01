@@ -63,7 +63,7 @@ class AppbarW extends StatelessWidget implements PreferredSizeWidget {
                   Padding(
                     padding: EdgeInsets.only(left: titlePadding,right: titlePadding,top: 5),
                     child: Text(
-                      title,
+                      title.tr,
                       style:TextStyle(fontSize: 22.sp,
                             color: const Color(0xffBDEBFB))
                     ),

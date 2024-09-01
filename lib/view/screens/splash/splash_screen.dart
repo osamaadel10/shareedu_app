@@ -2,7 +2,6 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/data/localData/local_database.dart';
-
 import '../../../constant/styles/colors.dart';
 import '../../../constant/urls/urls.dart';
 import '../start/start_screen.dart';
@@ -12,7 +11,6 @@ class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    
     return SafeArea(
       child: AnimatedSplashScreen(
         backgroundColor:backgroundColor ,
@@ -26,27 +24,29 @@ class SplashScreen extends StatelessWidget {
     );
   }
 }
-
+ String screen = "";
  Widget getFirstScreen(int? userIndex) {
-  print("User Index =================== ${LocalDatabase.getUserIndex()}");
-  print("User Index =================== ${LocalDatabase.getUserToken()}");
     switch (userIndex) {
       case 1:
+      screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.employeePage,
           title: 'staffServices'.tr,
         );
       case 2:
+      screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.studentPage,
           title: 'studentServices'.tr,
         );
       case 3:
+      screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.parentPage,
           title: 'parentServices'.tr,
         );
       case 4:
+      screen = 'web';
         return WebViewScreen(
           pageUrl: AppUrls.employeePage,
           title: 'staffServices'.tr,

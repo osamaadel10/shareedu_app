@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shareedu_app/constant/varibles/global_varible.dart';
 import 'package:shareedu_app/data/localData/local_database.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
 import 'package:shareedu_app/view/widgets/app_bar.dart';
@@ -24,7 +25,6 @@ class WebViewScreen extends StatefulWidget {
     required this.title,
     this.isGuestPage = false,
   });
-
   @override
   WebViewScreenState createState() => WebViewScreenState();
 }
@@ -65,6 +65,9 @@ class WebViewScreenState extends State<WebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
+        webpage = true;
+        currentUrl = widget.pageUrl;
+        currentTitle = widget.title;
     return WillPopScope(
       onWillPop: () async {
         if (webViewController != null) {

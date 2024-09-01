@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/constant/logos/school_logo.dart';
 import 'package:shareedu_app/view/widgets/app_bar.dart';
-
 import 'login_form.dart';
 
 class LoginScreen extends StatelessWidget {
