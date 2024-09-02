@@ -21,8 +21,8 @@ class SplashScreen extends StatelessWidget {
         splashIconSize: MediaQuery.sizeOf(context).width * 0.7,
         splashTransition: SplashTransition.fadeTransition,
         nextScreen: getFirstScreen(LocalDatabase.getUserIndex()),
-        animationDuration: const Duration(seconds: 1),
-        duration: 2,
+        animationDuration: const Duration(milliseconds: 800),
+        duration: 3,
       ),
     );
   }

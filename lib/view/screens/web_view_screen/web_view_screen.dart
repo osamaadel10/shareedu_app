@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:shareedu_app/constant/varibles/global_varible.dart';
 import 'package:shareedu_app/data/localData/local_database.dart';
 import 'package:shareedu_app/view/screens/login/login_screen.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
@@ -66,8 +65,6 @@ class WebViewScreenState extends State<WebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    currentUrl = widget.pageUrl;
-    currentTitle = widget.title;
     return WillPopScope(
       onWillPop: () async {
         if (webViewController != null) {
@@ -100,7 +97,7 @@ class WebViewScreenState extends State<WebViewScreen> {
           title: widget.title,
           hasBackButton: false,
           hasTrackingButton: !widget.isGuestPage,
-          hasLang: true,
+          hasLang: !widget.isGuestPage,
         ),
         body: Directionality(
           textDirection: Language().changeDirection(),

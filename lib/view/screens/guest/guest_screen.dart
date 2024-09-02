@@ -6,8 +6,6 @@ import '../../widgets/app_bar.dart';
 import '../../widgets/content_Icons.dart';
 
 class GuestScreen extends StatelessWidget {
-  final String tokenId = "YOUR_TOKEN"; // Replace with actual TokenID
-  final String operSys = GetPlatform.isAndroid ? "android" : "ios";
   @override
   Widget build(BuildContext context) {
     final orientaion = MediaQuery.of(context).orientation;

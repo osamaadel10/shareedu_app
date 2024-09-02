@@ -114,15 +114,7 @@ class LoginForm extends StatelessWidget {
 }
 
 bool checkData(String id, String pass) {
-  Validators.isEmpty(id);
-  Validators.isEmpty(pass);
-  Validators.numValidator(id);
-  Validators.passwordValidator(pass);
-  
-  if (Validators.isEmpty(id) ||
-      Validators.isEmpty(pass) ||
-      Validators.numValidator(id) ||
-      Validators.passwordValidator(pass)) {
+  if (Validators.isEmpty(id, pass) || Validators.numValidator(id)) {
     return false;
   }
   return true;
