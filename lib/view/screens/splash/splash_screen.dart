@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shareedu_app/data/localData/local_database.dart';
+import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/view/screens/fingerprint/finger_auth.dart';
 import '../../../constant/styles/colors.dart';
 import '../../../constant/urls/urls.dart';

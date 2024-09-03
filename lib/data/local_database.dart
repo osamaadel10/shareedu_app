@@ -1,4 +1,4 @@
-import '../../constant/varibles/global_varible.dart';
+import '../constant/varibles/global_varible.dart';
 
 class LocalDatabase {
   static void saveUserIndex(int userIndex) {

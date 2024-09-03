@@ -10,7 +10,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shareedu_app/models/enterWithFinger.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
 
-import '../../data/localData/local_database.dart';
+import '../../data/local_database.dart';
 import '../../models/login_model.dart';
 
 

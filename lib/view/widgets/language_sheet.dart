@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:shareedu_app/view/screens/splash/splash_screen.dart';
 import '../../constant/styles/colors.dart';
 import '../../constant/varibles/global_varible.dart';
-import '../../data/localData/local_database.dart';
+import '../../data/local_database.dart';
 import 'button.dart';
 
 class Language {

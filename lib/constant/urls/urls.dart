@@ -1,5 +1,5 @@
 import 'dart:io';
-import '../../data/localData/local_database.dart';
+import '../../data/local_database.dart';
 
 class AppUrls {
   static const String _baseUrl = "https://ms.edu.sa/";

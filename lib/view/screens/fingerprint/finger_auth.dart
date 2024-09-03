@@ -1,13 +1,15 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shareedu_app/constant/styles/colors.dart';
 import 'package:shareedu_app/controllers/authServices/auth_services.dart';
-import 'package:shareedu_app/data/localData/local_database.dart';
+import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/models/enterWithFinger.dart';
 import 'package:shareedu_app/view/screens/splash/splash_screen.dart';
 
-import 'api_auth.dart';
+import '../../../controllers/authServices/api_auth.dart';
 
 class FingerAuth extends StatefulWidget {
   const FingerAuth({super.key});
@@ -25,9 +27,16 @@ class _FingerAuthState extends State<FingerAuth> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Center(
-        child: CircularProgressIndicator(),
+        child: Column(        
+          children: [
+            SizedBox(height: 50.h,),
+            Icon(Icons.safety_check_outlined,size: 300.r,color: primaryColor,),
+            SizedBox(height: 50.h,),
+            CircularProgressIndicator(strokeAlign: 5.w,strokeWidth: 15.w,color: primaryColor,),
+          ],
+        ),
       ),
     );
   }

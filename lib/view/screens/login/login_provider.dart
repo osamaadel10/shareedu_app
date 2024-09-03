@@ -5,7 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/constant/varibles/global_varible.dart';
-import 'package:shareedu_app/data/localData/local_database.dart';
+import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/view/screens/web_view_screen/web_view_screen.dart';
 import '../../../constant/urls/urls.dart';
 import '../../../controllers/authServices/auth_services.dart';

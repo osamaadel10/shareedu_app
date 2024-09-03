@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:shareedu_app/data/localData/local_database.dart';
+import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/view/screens/login/login_screen.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
 import 'package:shareedu_app/view/widgets/app_bar.dart';
@@ -122,26 +122,55 @@ class WebViewScreenState extends State<WebViewScreen> {
                   action: PermissionRequestResponseAction.GRANT,
                 );
               },
+              // ------------------OLD WAY-------------------
+              // shouldOverrideUrlLoading: (controller, navigationAction) async {
+              //   var uri = navigationAction.request.url!;
+              // if ([
+              //   'us05web.zoom.us',
+              //   'chat.whatsapp.com',
+              //   'www.youtube.com',
+              //   'docs.google.com',
+              //   'drive.google.com',
+              //   't.me',
+              //   'www.instagram.com',
+              //   'twitter.com',
+              //   'www.facebook.com',
+              // ].contains(uri.host))
+              //   if (uri.pathSegments.first == "DownloadFiles") {
+              //     openLink(navigationAction.request.url!);
+              //     return NavigationActionPolicy.CANCEL;
+              //   } else if (uri.host == "ms.edu.sa") {
+              //     return NavigationActionPolicy.ALLOW;
+              //   } else {
+              //     openLink(navigationAction.request.url!);
+              //     return NavigationActionPolicy.CANCEL;
+              //   }
+              // },
               shouldOverrideUrlLoading: (controller, navigationAction) async {
+                Uri? currentUrl = await webViewController
+                    ?.getUrl(); 
                 var uri = navigationAction.request.url!;
-                // if ([
-                //   'us05web.zoom.us',
-                //   'chat.whatsapp.com',
-                //   'www.youtube.com',
-                //   'docs.google.com',
-                //   'drive.google.com',
-                //   't.me',
-                //   'www.instagram.com',
-                //   'twitter.com',
-                //   'www.facebook.com',
-                // ].contains(uri.host))
-                if (uri.pathSegments.first == "DownloadFiles") {
-                  openLink(navigationAction.request.url!);
+
+                if (uri.pathSegments.last.endsWith('.pdf') ||
+                    uri.host != "ms.edu.sa") {
+                  await openLink(uri);
+                  webViewController!.loadUrl(
+                    urlRequest: URLRequest(url: currentUrl),
+                  );
+                  return NavigationActionPolicy.CANCEL;
+                } else if (uri.pathSegments.first == "DownloadFiles") {
+                  await openLink(uri);
+                  webViewController!.loadUrl(
+                    urlRequest: URLRequest(url: currentUrl),
+                  );
                   return NavigationActionPolicy.CANCEL;
                 } else if (uri.host == "ms.edu.sa") {
                   return NavigationActionPolicy.ALLOW;
                 } else {
-                  openLink(navigationAction.request.url!);
+                  await openLink(uri);
+                  webViewController!.loadUrl(
+                    urlRequest: URLRequest(url: currentUrl),
+                  );
                   return NavigationActionPolicy.CANCEL;
                 }
               },
