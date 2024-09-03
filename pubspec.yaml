@@ -45,6 +45,7 @@ dependencies:
   flutter_inappwebview: ^5.7.2+1
   dio: ^5.6.0
   pretty_dio_logger: ^1.4.0
+  local_auth: ^2.3.0
 
 
 dev_dependencies:

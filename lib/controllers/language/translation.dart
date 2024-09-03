@@ -41,7 +41,8 @@ class Translation extends Translations {
           "password_form_hint":
           "Password shouldn't be less than 6 letters or numbers",
           "idHint": "ID number not more than 15 digits",
-          "error":"Error"
+          "error":"Error",
+          "fingerPrint":"Use fingerprint to log in"
         },
         'ar_EG': {
           "studentServices": "خدمات الطالب",
@@ -78,7 +79,8 @@ class Translation extends Translations {
           "numbers_only": "أدخل أرقام فقط",
           "password_form_hint": "يجب ألا تقل كلمة المرور عن 6 أحرف أو أرقام",
           "idHint": "رقم الهوية لا يزيد عن ١٥ رقم",
-          "error":"خطأ"
+          "error":"خطأ",
+          "fingerPrint":"استخدم البصمه لتسجيل الدخول"
         }
       };
 

@@ -93,6 +93,7 @@ class WebViewScreenState extends State<WebViewScreen> {
         return false;
       },
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppbarW(
           title: widget.title,
           hasBackButton: false,

@@ -15,15 +15,15 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: SingleChildScrollView(
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: backgroundColor,
+        body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
             child: Column(
               children: [
-                SizedBox(height: 0.10 * Get.height),
+                SizedBox(height: 0.06 * Get.height),
                 LogoSchool(width: Get.width - 20, height: Get.height / 3),
                 SizedBox(
                   height: 50.h,
@@ -54,12 +54,12 @@ class StartScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 100.w, vertical: 40.h),
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.5,
-          child: const LogoCompany(),
+        bottomNavigationBar: Container(
+          padding: EdgeInsets.symmetric(horizontal: 100.w, vertical: 40.h),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: const LogoCompany(),
+          ),
         ),
       ),
     );

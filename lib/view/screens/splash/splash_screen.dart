@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/data/localData/local_database.dart';
+import 'package:shareedu_app/view/screens/fingerprint/finger_auth.dart';
 import '../../../constant/styles/colors.dart';
 import '../../../constant/urls/urls.dart';
 import '../start/start_screen.dart';
@@ -20,9 +21,9 @@ class SplashScreen extends StatelessWidget {
         ),
         splashIconSize: MediaQuery.sizeOf(context).width * 0.7,
         splashTransition: SplashTransition.fadeTransition,
-        nextScreen: getFirstScreen(LocalDatabase.getUserIndex()),
-        animationDuration: const Duration(milliseconds: 800),
-        duration: 3,
+        nextScreen: (LocalDatabase.isUserAuthenticated())?const FingerAuth(): const StartScreen(),
+        animationDuration: const Duration(milliseconds: 600),
+        duration: 600,
       ),
     );
   }

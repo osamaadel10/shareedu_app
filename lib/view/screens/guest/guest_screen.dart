@@ -10,6 +10,7 @@ class GuestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final orientaion = MediaQuery.of(context).orientation;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppbarW(
         title: 'guestRegister'.tr,
         hasBackButton: true,
