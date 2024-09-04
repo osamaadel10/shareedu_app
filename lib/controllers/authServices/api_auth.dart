@@ -16,8 +16,7 @@ class LocalAuthApi {
   static Future<List<BiometricType>> getBiometrics() async {
     try {
       return await _auth.getAvailableBiometrics();
-      // ignore: unused_catch_clause
-    } on PlatformException catch (e) {
+    } on PlatformException {
       return <BiometricType>[];
     }
   }
@@ -25,16 +24,15 @@ class LocalAuthApi {
   static Future<bool> authenticate() async {
     bool isAvailable = await hasBiometrics();
     if (!isAvailable) return false;
+
     try {
       return await _auth.authenticate(
         localizedReason: 'fingerPrint'.tr,
-        authMessages: [],
         options: const AuthenticationOptions(
-          stickyAuth: true,
+          stickyAuth: true,useErrorDialogs: true
         ),
       );
-      // ignore: unused_catch_clause
-    } on PlatformException catch (e) {
+    } on PlatformException {
       return false;
     }
   }
