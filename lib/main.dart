@@ -20,7 +20,7 @@ void main() async {
   runApp(GetMaterialApp(
     translations: Translation(),
     locale: lang,
-    home: const MyApp(),
+    home:  const MyApp(),
   ));
 }
 

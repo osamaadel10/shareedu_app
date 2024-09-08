@@ -17,18 +17,21 @@ class LoginProvider {
     TopLoader.startLoading(context);
     String? token = await FirebaseMessaging.instance.getToken();
     final int? userIndex = await _login(token, context);
-    TopLoader.stopLoading(context);
+    
 
     if (userIndex == null || token == null) {
+      TopLoader.stopLoading(context);
       _showErrorMessage('loginError'.tr, context);
       return;
     }
     if (userIndex == 0) {
+      TopLoader.stopLoading(context);
       _showErrorMessage('loginAuthError'.tr, context);
       return;
     }
 
     _saveUserDataToDatabse(userIndex, token);
+    TopLoader.stopLoading(context);
     _reDirectUserToHomeScreen(userIndex, context);
   }
 
@@ -45,7 +48,7 @@ class LoginProvider {
     return userIndex;
   }
 
-  void _saveUserDataToDatabse(int userIndex, String token) {
+  void _saveUserDataToDatabse(int userIndex, String token){
     LocalDatabase.saveUserIndex(userIndex);
     LocalDatabase.saveUserToken(token);
   }

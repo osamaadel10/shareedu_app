@@ -1,12 +1,12 @@
 import '../constant/varibles/global_varible.dart';
 
 class LocalDatabase {
-  static void saveUserIndex(int userIndex) {
-    box.write("userIndex", userIndex);
+  static void saveUserIndex(int userIndex)async {
+    await box.write("userIndex", userIndex);
   }
 
-  static void saveUserToken(String userIndex) {
-    box.write("userToken", userIndex);
+  static void saveUserToken(String userIndex) async{
+    await box.write("userToken", userIndex);
   }
 
   static int getLanguageCode() {

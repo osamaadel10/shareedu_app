@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../constant/styles/colors.dart';
 
 
@@ -39,7 +37,7 @@ class Button extends StatelessWidget {
         icon: icon ?? Container(),
         label: Text(
           title,
-          style: TextStyle(fontSize: 16.sp) ,
+          style: const TextStyle(fontSize: 18) ,
         ),
         onPressed: onButtonPressed,
         style: ElevatedButton.styleFrom(

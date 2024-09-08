@@ -99,6 +99,7 @@ class LoginForm extends StatelessWidget {
           ),
           SizedBox(height: 40.h),
           Button(
+            hight: MediaQuery.of(context).size.height * 0.06,
             width: double.infinity,
             title: 'login'.tr,
             onButtonPressed: () {

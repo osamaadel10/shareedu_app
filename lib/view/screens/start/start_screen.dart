@@ -23,20 +23,24 @@ class StartScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
             child: Column(
               children: [
-                SizedBox(height: 0.06 * Get.height),
-                LogoSchool(width: Get.width - 20, height: Get.height / 3),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.07),
+                LogoSchool(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.height / 3.8),
                 SizedBox(
-                  height: 50.h,
+                  height: MediaQuery.of(context).size.height * 0.09,
                 ),
                 Button(
                     title: 'login'.tr,
                     width: double.infinity,
+                    hight: MediaQuery.of(context).size.height * 0.06,
                     onButtonPressed: () {
                       Get.to(() => const LoginScreen());
                     }),
                 const SizedBox(height: 15),
                 Button(
                   width: double.infinity,
+                  hight: MediaQuery.of(context).size.height * 0.06,
                   title: "guestRegister".tr,
                   onButtonPressed: () {
                     Get.to(() => GuestScreen());
@@ -45,6 +49,7 @@ class StartScreen extends StatelessWidget {
                 const SizedBox(height: 15),
                 Button(
                   width: double.infinity,
+                  hight: MediaQuery.of(context).size.height * 0.06,
                   title: "language".tr,
                   onButtonPressed: () async {
                     changeLangeSheet(context);
@@ -55,10 +60,11 @@ class StartScreen extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: Container(
-          padding: EdgeInsets.symmetric(horizontal: 100.w, vertical: 40.h),
+          padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.5,
-            child: const LogoCompany(),
+            width: MediaQuery.of(context).size.width * 0.08,
+            height: MediaQuery.of(context).size.height * 0.1,
+            child: LogoCompany(),
           ),
         ),
       ),

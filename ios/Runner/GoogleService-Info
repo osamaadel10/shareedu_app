@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAhB_JJixkMVMUJ4FnH15_7yZlL2r494-8</string>
+	<string>AIzaSyC9Qob6p8PspJr0k21b8Y_S4pNYtiVLNeI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>262240356212</string>
+	<string>732986456583</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.shareeduapp</string>
+	<string>com.share.alarqam</string>
 	<key>PROJECT_ID</key>
-	<string>riadelsaalhen</string>
+	<string>alarqam-school</string>
 	<key>STORAGE_BUCKET</key>
-	<string>riadelsaalhen.appspot.com</string>
+	<string>alarqam-school.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:262240356212:ios:a4fe1c53ee82e425818e21</string>
+	<string>1:732986456583:ios:ccb04ce3c82b78193c88a2</string>
 </dict>
 </plist>

@@ -31,10 +31,10 @@ class _FingerAuthState extends State<FingerAuth> {
       body: Center(
         child: Column(        
           children: [
+            SizedBox(height: 100.h,),
+            Icon(Icons.lock_person_outlined,size: 200.r,color: primaryColor,),
             SizedBox(height: 50.h,),
-            Icon(Icons.safety_check_outlined,size: 300.r,color: primaryColor,),
-            SizedBox(height: 50.h,),
-            CircularProgressIndicator(strokeAlign: 5.w,strokeWidth: 15.w,color: primaryColor,),
+            CircularProgressIndicator(strokeAlign: 4.w,strokeWidth: 13.w,color: primaryColor,),
           ],
         ),
       ),

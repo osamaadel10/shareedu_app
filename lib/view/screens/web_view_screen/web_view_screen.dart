@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,33 +64,8 @@ class WebViewScreenState extends State<WebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        if (webViewController != null) {
-          if (await webViewController!.canGoBack()) {
-            await webViewController!.goBack();
-          } else {
-            if (widget.isGuestPage) {
-              Navigator.of(context).pop();
-            } else {
-              showConfirmationDialog(
-                context,
-                title: 'exitHint'.tr,
-                subtitle1: "",
-                onYesPressed: () {
-                  Navigator.of(context).pop();
-                  if (Platform.isAndroid) {
-                    SystemNavigator.pop();
-                  } else {
-                    exit(0);
-                  }
-                },
-              );
-            }
-          }
-        }
-        return false;
-      },
+    return PopScope(
+      canPop: false,
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppbarW(
@@ -109,7 +83,6 @@ class WebViewScreenState extends State<WebViewScreen> {
                   "${widget.pageUrl}&UserLang=${LocalDatabase.getLanguageCode()}",
                 ),
               ),
-              initialUserScripts: UnmodifiableListView<UserScript>([]),
               initialOptions: options,
               pullToRefreshController: pullToRefreshController,
               onWebViewCreated: (controller) {
@@ -122,37 +95,20 @@ class WebViewScreenState extends State<WebViewScreen> {
                   action: PermissionRequestResponseAction.GRANT,
                 );
               },
-              // ------------------OLD WAY-------------------
-              // shouldOverrideUrlLoading: (controller, navigationAction) async {
-              //   var uri = navigationAction.request.url!;
-              // if ([
-              //   'us05web.zoom.us',
-              //   'chat.whatsapp.com',
-              //   'www.youtube.com',
-              //   'docs.google.com',
-              //   'drive.google.com',
-              //   't.me',
-              //   'www.instagram.com',
-              //   'twitter.com',
-              //   'www.facebook.com',
-              // ].contains(uri.host))
-              //   if (uri.pathSegments.first == "DownloadFiles") {
-              //     openLink(navigationAction.request.url!);
-              //     return NavigationActionPolicy.CANCEL;
-              //   } else if (uri.host == "ms.edu.sa") {
-              //     return NavigationActionPolicy.ALLOW;
-              //   } else {
-              //     openLink(navigationAction.request.url!);
-              //     return NavigationActionPolicy.CANCEL;
-              //   }
-              // },
               shouldOverrideUrlLoading: (controller, navigationAction) async {
-                Uri? currentUrl = await webViewController
-                    ?.getUrl(); 
+                Uri? currentUrl = await webViewController?.getUrl();
                 var uri = navigationAction.request.url!;
-
-                if (uri.pathSegments.last.endsWith('.pdf') ||
-                    uri.host != "ms.edu.sa") {
+                if (uri.pathSegments.last.contains('.docx') ||
+                    uri.pathSegments.last.contains('.pdf') ||
+                    uri.pathSegments.last.contains('.csv') ||
+                    uri.pathSegments.last.contains('.xlsx') ||
+                    uri.pathSegments.last.contains('.pptx') ||
+                    uri.pathSegments.last.contains('.txt') ||
+                    uri.pathSegments.last.contains('.jpg') ||
+                    uri.pathSegments.last.contains('.png') ||
+                    uri.pathSegments.last.contains('.zip') ||
+                    uri.pathSegments.last.contains('.rar') ||
+                    uri.host != "alarqmschools.com") {
                   await openLink(uri);
                   webViewController!.loadUrl(
                     urlRequest: URLRequest(url: currentUrl),
@@ -164,16 +120,16 @@ class WebViewScreenState extends State<WebViewScreen> {
                     urlRequest: URLRequest(url: currentUrl),
                   );
                   return NavigationActionPolicy.CANCEL;
-                } else if (uri.host == "ms.edu.sa") {
-                  return NavigationActionPolicy.ALLOW;
-                } else {
+                } else if (uri.host == "alarqmschools.com") {
+                  return NavigationActionPolicy.ALLOW;}
+                 else {
                   await openLink(uri);
                   webViewController!.loadUrl(
                     urlRequest: URLRequest(url: currentUrl),
                   );
+                 }
                   return NavigationActionPolicy.CANCEL;
                 }
-              },
             ),
           ),
         ),

@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "262240356212",
-    "project_id": "riadelsaalhen",
-    "storage_bucket": "riadelsaalhen.appspot.com"
+    "project_number": "732986456583",
+    "project_id": "alarqam-school",
+    "storage_bucket": "alarqam-school.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:262240356212:android:f76b418bd9a4b265818e21",
+        "mobilesdk_app_id": "1:732986456583:android:6d125c92e0cf3bec3c88a2",
         "android_client_info": {
-          "package_name": "com.example.shareedu_app"
+          "package_name": "com.share.alarqam"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD89oXgGGrSn90iwqy1XHOLGl4hJgRTEH4"
+          "current_key": "AIzaSyDNkPwLnUfdWntIeQmuALlvFmMMdVUjJ_8"
         }
       ],
       "services": {
@@ -26,15 +26,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:262240356212:android:ff5a1cf59d3fcf6f818e21",
+        "mobilesdk_app_id": "1:732986456583:android:5c1494c783e11b4c3c88a2",
         "android_client_info": {
-          "package_name": "com.shareedu.ms"
+          "package_name": "com.shareedu.alarqam"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD89oXgGGrSn90iwqy1XHOLGl4hJgRTEH4"
+          "current_key": "AIzaSyDNkPwLnUfdWntIeQmuALlvFmMMdVUjJ_8"
         }
       ],
       "services": {

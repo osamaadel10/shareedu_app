@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
           "images/logo.png",
           fit: BoxFit.cover,
         ),
-        splashIconSize: MediaQuery.sizeOf(context).width * 0.7,
+        splashIconSize: MediaQuery.sizeOf(context).width * 0.6,
         splashTransition: SplashTransition.fadeTransition,
         nextScreen: (LocalDatabase.isUserAuthenticated())?const FingerAuth(): const StartScreen(),
         animationDuration: const Duration(milliseconds: 600),

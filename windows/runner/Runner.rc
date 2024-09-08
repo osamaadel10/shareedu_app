@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "مدارس رياض الصالحين" "\0"
+            VALUE "FileDescription", "مدارس الأرقم الأهلية" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "shareedu_app" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "shareedu_app.exe" "\0"
-            VALUE "ProductName", "مدارس رياض الصالحين" "\0"
+            VALUE "ProductName", "مدارس الأرقم الأهلية" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

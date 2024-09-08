@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/constant/logos/school_logo.dart';
 import 'package:shareedu_app/view/widgets/app_bar.dart';
+import '../../../constant/varibles/global_varible.dart';
 import 'login_form.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserIndex = 1;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppbarW(
