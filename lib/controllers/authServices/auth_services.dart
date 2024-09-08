@@ -1,7 +1,4 @@
-// ignore_for_file: avoid_print
-
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +7,9 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shareedu_app/models/enterWithFinger.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
 import 'package:shareedu_app/view/widgets/top_loader.dart';
-
+import '../../constant/varibles/global_varible.dart';
 import '../../data/local_database.dart';
 import '../../models/login_model.dart';
-
 
 class AuthServices {
   static Future<int?> login(
@@ -39,7 +35,7 @@ class AuthServices {
         queryParameters: loginParameters.toJson(),
         options: Options(method: "POST"),
       );
-      int? userIndex = int.tryParse(res.data)??1;
+      int? userIndex = int.tryParse(res.data)??0;
       return (userIndex);
     } catch (e) {
       return null;
@@ -81,7 +77,9 @@ static Future enterWithFinger(
   }
 
 
-  static void logout(BuildContext context){
+  static void logout(BuildContext context)async{
+    userid ="" ;
+    userpass ="" ;
     TopLoader.startLoading(context);
     LocalDatabase.deletUserData();
     TopLoader.stopLoading(context);

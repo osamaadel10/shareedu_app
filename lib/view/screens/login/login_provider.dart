@@ -17,7 +17,6 @@ class LoginProvider {
     TopLoader.startLoading(context);
     String? token = await FirebaseMessaging.instance.getToken();
     final int? userIndex = await _login(token, context);
-    
 
     if (userIndex == null || token == null) {
       TopLoader.stopLoading(context);
@@ -45,10 +44,10 @@ class LoginProvider {
       userLang: LocalDatabase.getLanguageCode(),
     );
     final int? userIndex = await AuthServices.login(loginModel);
-    return userIndex;
+    return userIndex??0;
   }
 
-  void _saveUserDataToDatabse(int userIndex, String token){
+  void _saveUserDataToDatabse(int userIndex, String token) {
     LocalDatabase.saveUserIndex(userIndex);
     LocalDatabase.saveUserToken(token);
   }
@@ -56,24 +55,27 @@ class LoginProvider {
   void _reDirectUserToHomeScreen(int userIndex, BuildContext context) {
     switch (userIndex) {
       case 1:
-        {Get.offAll(() => WebViewScreen(
-              title: 'staffServices'.tr,
-              pageUrl: AppUrls.employeePage,
-            ));
+        {
+          Get.offAll(() => WebViewScreen(
+                title: 'staffServices'.tr,
+                pageUrl: AppUrls.employeePage,
+              ));
         }
         break;
       case 4:
-      {Get.offAll(() => WebViewScreen(
-              title: 'staffServices'.tr,
-              pageUrl: AppUrls.employeePage,
-            ));
+        {
+          Get.offAll(() => WebViewScreen(
+                title: 'staffServices'.tr,
+                pageUrl: AppUrls.employeePage,
+              ));
         }
         break;
       case 2:
-        {Get.offAll(() => WebViewScreen(
-              title: 'studentServices'.tr,
-              pageUrl: AppUrls.studentPage,
-            ));
+        {
+          Get.offAll(() => WebViewScreen(
+                title: 'studentServices'.tr,
+                pageUrl: AppUrls.studentPage,
+              ));
         }
         break;
       case 3:

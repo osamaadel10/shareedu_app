@@ -6,10 +6,10 @@ import 'package:shareedu_app/view/screens/login/login_vaildator.dart';
 
 class LoginFieldWidget extends StatelessWidget {
   const LoginFieldWidget({
-    Key? key,
+    super.key,
     this.onChanged,
     required this.labelText,
-  }) : super(key: key);
+  });
   final Function()? onChanged;
   final String labelText;
   @override

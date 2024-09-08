@@ -21,9 +21,9 @@ class LocalDatabase {
     return box.read("userToken");
   }
 
-  static void deletUserData() {
-    box.remove("userIndex");
-    box.remove("userToken");
+  static void deletUserData()async {
+    await box.write("userIndex",null);
+    await box.write("userToken",null);
   }
 
   static bool isUserAuthenticated() {
