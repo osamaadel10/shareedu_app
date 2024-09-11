@@ -8,6 +8,7 @@ import 'package:shareedu_app/controllers/authServices/auth_services.dart';
 import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/models/enterWithFinger.dart';
 import 'package:shareedu_app/view/screens/splash/splash_screen.dart';
+import 'package:shareedu_app/view/screens/start/start_screen.dart';
 
 import '../../../controllers/authServices/api_auth.dart';
 
@@ -49,7 +50,10 @@ class _FingerAuthState extends State<FingerAuth> {
           operSys: Platform.isAndroid ? "android" : "ios",
           userType: LocalDatabase.getUserIndex() ?? 0,
           userLang: LocalDatabase.getLanguageCode()));
-    } else {
+    }else if(isAuthenticated == false && LocalDatabase.getUserIndex() == null){
+      Get.to(() => const StartScreen());
+    }
+     else {
       exit(1);
     }
   }

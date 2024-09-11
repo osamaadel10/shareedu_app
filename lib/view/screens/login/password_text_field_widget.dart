@@ -6,9 +6,9 @@ import '../../../constant/styles/colors.dart';
 
 class PasswordTextFieldWidget extends StatefulWidget {
   const PasswordTextFieldWidget({
-    Key? key,
+    super.key,
     this.lableText,
-  }) : super(key: key);
+  });
   final String? lableText;
 
   @override

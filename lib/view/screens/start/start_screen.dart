@@ -43,7 +43,7 @@ class StartScreen extends StatelessWidget {
                   hight: MediaQuery.of(context).size.height * 0.06,
                   title: "guestRegister".tr,
                   onButtonPressed: () {
-                    Get.to(() => GuestScreen());
+                    Get.to(() =>const GuestScreen());
                   },
                 ),
                 const SizedBox(height: 15),
@@ -64,7 +64,7 @@ class StartScreen extends StatelessWidget {
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.08,
             height: MediaQuery.of(context).size.height * 0.1,
-            child: LogoCompany(),
+            child: const LogoCompany(),
           ),
         ),
       ),

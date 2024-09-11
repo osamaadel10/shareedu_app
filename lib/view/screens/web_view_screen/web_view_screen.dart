@@ -244,6 +244,7 @@ class WebViewScreenState extends State<WebViewScreen> {
             Get.back();
           } else {
             showConfirmationDialog(
+              // ignore: use_build_context_synchronously
               context,
               title: 'exitHint'.tr,
               subtitle1: "",

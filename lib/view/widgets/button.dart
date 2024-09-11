@@ -14,7 +14,7 @@ class Button extends StatelessWidget {
   final double elevation;
   final Widget? icon;
   const Button({
-    Key? key,
+    super.key,
     required this.title,
     required this.onButtonPressed,
     this.color = primaryColor,
@@ -27,7 +27,7 @@ class Button extends StatelessWidget {
     fontWeight: FontWeight.w800,),
     this.textColor = Colors.white,
     this.icon,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return SizedBox(

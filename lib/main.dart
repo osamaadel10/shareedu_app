@@ -9,7 +9,7 @@ import 'controllers/language/translation.dart';
 
 void main() async {
   await GetStorage.init();
-  box =  GetStorage();
+  box = GetStorage();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   String? storedLang = await box.read('lang');
@@ -17,10 +17,12 @@ void main() async {
   if (storedLang == null) {
     await box.write('lang', Get.deviceLocale.toString());
   }
+
   runApp(GetMaterialApp(
+    debugShowCheckedModeBanner: false,
     translations: Translation(),
     locale: lang,
-    home:  const MyApp(),
+    home: const MyApp(),
   ));
 }
 

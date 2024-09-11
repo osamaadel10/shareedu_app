@@ -44,7 +44,7 @@ android {
         release {
             storeFile file("release-key.jks")
             storePassword "123456"
-            keyAlias "keystore"
+            keyAlias "key-store"
             keyPassword "123456"
         }
     }

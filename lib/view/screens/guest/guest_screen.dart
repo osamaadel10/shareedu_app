@@ -6,6 +6,8 @@ import '../../widgets/app_bar.dart';
 import '../../widgets/content_Icons.dart';
 
 class GuestScreen extends StatelessWidget {
+  const GuestScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final orientaion = MediaQuery.of(context).orientation;

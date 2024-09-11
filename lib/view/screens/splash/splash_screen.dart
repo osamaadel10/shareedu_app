@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Center(
       child: AnimatedSplashScreen(
         backgroundColor: backgroundColor,
         splash: Image.asset(

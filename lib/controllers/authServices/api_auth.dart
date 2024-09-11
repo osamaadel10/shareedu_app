@@ -24,7 +24,6 @@ class LocalAuthApi {
   static Future<bool> authenticate() async {
     bool isAvailable = await hasBiometrics();
     if (!isAvailable) return false;
-
     try {
       return await _auth.authenticate(
         localizedReason: 'fingerPrint'.tr,

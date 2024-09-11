@@ -9,6 +9,7 @@ import '../../data/local_database.dart';
 import 'button.dart';
 
 class Language {
+  // ignore: prefer_typing_uninitialized_variables
   var local;
   changeLanguage(setlang, context) async {
     if (setlang == const Locale('ar_EG')) {
@@ -19,8 +20,7 @@ class Language {
       await box.write('lang', 'en_US');
       local = 'en_US';
       lang = const Locale('en_US');
-    }
-    ;
+      }
     Get.updateLocale(Locale(local));
   }
 
