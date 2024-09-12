@@ -7,28 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:732986456583:android:6d125c92e0cf3bec3c88a2",
+        "mobilesdk_app_id": "1:732986456583:android:e97483a2734e0f8e3c88a2",
         "android_client_info": {
-          "package_name": "com.share.alarqam"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDNkPwLnUfdWntIeQmuALlvFmMMdVUjJ_8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:732986456583:android:5c1494c783e11b4c3c88a2",
-        "android_client_info": {
-          "package_name": "com.shareedu.alarqam"
+          "package_name": "com.arqam"
         }
       },
       "oauth_client": [],
