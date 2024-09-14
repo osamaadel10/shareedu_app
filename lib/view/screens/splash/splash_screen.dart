@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shareedu_app/controllers/authServices/api_auth.dart';
 import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/view/screens/fingerprint/finger_auth.dart';
 import '../../../constant/styles/colors.dart';
@@ -21,7 +22,7 @@ class SplashScreen extends StatelessWidget {
         ),
         splashIconSize: MediaQuery.sizeOf(context).width * 0.6,
         splashTransition: SplashTransition.fadeTransition,
-        nextScreen: (LocalDatabase.isUserAuthenticated())?const FingerAuth(): const StartScreen(),
+        nextScreen: (LocalDatabase.isUserAuthenticated()&& LocalAuthApi.hasBiometrics()==true)?const FingerAuth(): const StartScreen(),
         animationDuration: const Duration(milliseconds: 600),
         duration: 600,
       ),
