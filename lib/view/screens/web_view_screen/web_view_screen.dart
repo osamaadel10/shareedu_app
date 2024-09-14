@@ -134,78 +134,71 @@ class WebViewScreenState extends State<WebViewScreen> {
           ),
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.all(4),
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 2.w),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: primaryColor, width: 2)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                InkWell(
-                  onTap: () => _doAction(2),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      widget.isGuestPage
-                          ? Icon(
-                              Icons.login_rounded,
-                              color: const Color.fromARGB(255, 120, 120, 120),
-                              size: 35.sp,
-                            )
-                          : Icon(
-                              Icons.logout_rounded,
-                              color: const Color.fromARGB(255, 120, 120, 120),
-                              size: 35.sp,
-                            ),
-                      const SizedBox(height: 3),
-                      Text(
-                        widget.isGuestPage ? 'login'.tr : 'logout'.tr,
-                        style: TextStyle(fontSize: 12.sp),
-                      ),
-                    ],
-                  ),
+          padding: const EdgeInsets.all(6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () => _doAction(2),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    widget.isGuestPage
+                        ? Icon(
+                            Icons.login_rounded,
+                            color: const Color.fromARGB(255, 120, 120, 120),
+                            size: 35.sp,
+                          )
+                        : Icon(
+                            Icons.logout_rounded,
+                            color: const Color.fromARGB(255, 120, 120, 120),
+                            size: 35.sp,
+                          ),
+                    const SizedBox(height: 3),
+                    Text(
+                      widget.isGuestPage ? 'login'.tr : 'logout'.tr,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ],
                 ),
-                InkWell(
-                  onTap: () => _doAction(1),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.home,
-                        color: primaryColor,
-                        size: 40.sp,
-                      ),
-                      const SizedBox(height: 3),
-                      Text(
-                        'main'.tr,
-                        style: TextStyle(fontSize: 12.sp),
-                      ),
-                    ],
-                  ),
+              ),
+              InkWell(
+                onTap: () => _doAction(1),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.home,
+                      color: primaryColor,
+                      size: 40.sp,
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      'main'.tr,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ],
                 ),
-                InkWell(
-                  onTap: () => _doAction(0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.replay,
-                        color: const Color.fromARGB(255, 120, 120, 120),
-                        size: 35.sp,
-                      ),
-                      const SizedBox(height: 3),
-                      Text(
-                        'back'.tr,
-                        style: TextStyle(fontSize: 12.sp),
-                      ),
-                    ],
-                  ),
+              ),
+              InkWell(
+                onTap: () => _doAction(0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.replay,
+                      color: const Color.fromARGB(255, 120, 120, 120),
+                      size: 35.sp,
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      'back'.tr,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:732986456583:android:e97483a2734e0f8e3c88a2",
+        "mobilesdk_app_id": "1:732986456583:android:5edea02fc54bbeb23c88a2",
         "android_client_info": {
-          "package_name": "com.arqam"
+          "package_name": "com.share.alarqamschool"
         }
       },
       "oauth_client": [],
