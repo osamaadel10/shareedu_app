@@ -45,6 +45,7 @@ class AuthServices {
 static Future enterWithFinger(
     EnterModel enterModel,
   ) async {
+    // print(object)
     final EnterModel enterModel = EnterModel(
       tokenId: LocalDatabase.getUserToken() ?? "",
       operSys: Platform.isAndroid ? "android" : "ios",
@@ -58,8 +59,8 @@ static Future enterWithFinger(
       dio.interceptors.add(
         PrettyDioLogger(
           requestHeader: true,
-          requestBody: true,
-          responseBody: true,
+          requestBody: false,
+          responseBody: false,
           responseHeader: false,
           compact: true,
         ),

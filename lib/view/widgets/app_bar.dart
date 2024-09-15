@@ -69,6 +69,14 @@ class AppbarW extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                   const Spacer(),
+                  hasTrackingButton
+                      ? Padding(
+                    padding: const EdgeInsets.only(left: 5),
+                    child:Switch(value: true,activeColor: Colors.green,onChanged: (v){
+
+                    })
+                  )
+                      : const SizedBox(),
                   hasLang
                       ? Padding(
                         padding: const EdgeInsets.only(top: 5.0,left: 5),

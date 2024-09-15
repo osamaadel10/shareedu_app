@@ -64,6 +64,7 @@ class WebViewScreenState extends State<WebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return PopScope(
       canPop: false,
       child: Scaffold(
@@ -71,7 +72,7 @@ class WebViewScreenState extends State<WebViewScreen> {
         appBar: AppbarW(
           title: widget.title,
           hasBackButton: false,
-          hasTrackingButton: !widget.isGuestPage,
+          hasTrackingButton: LocalDatabase.getUserIndex() == 1,
           hasLang: !widget.isGuestPage,
         ),
         body: Directionality(

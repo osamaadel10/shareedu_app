@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 5),
-              LogoSchool(width: Get.width*0.4, height: Get.width*0.5,),
+              LogoSchool(width: Get.width*0.3, height: Get.width*0.4,),
               const LoginForm(),
             ],
           ),
