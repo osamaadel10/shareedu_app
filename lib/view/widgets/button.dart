@@ -30,24 +30,27 @@ class Button extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: hight,
-      child: ElevatedButton.icon(
-        icon: icon ?? Container(),
-        label: Text(
-          title,
-          style: const TextStyle(fontSize: 18) ,
-        ),
-        onPressed: onButtonPressed,
-        style: ElevatedButton.styleFrom(
-          foregroundColor: textColor,
-          alignment: Alignment.center,
-          backgroundColor: color,
-          elevation: elevation,
-          textStyle: textStyle,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
+    return Padding(
+      padding:const EdgeInsets.all(1),
+      child: SizedBox(
+        width: width,
+        height: hight,
+        child: ElevatedButton.icon(
+          icon: icon ?? Container(),
+          label: Text(
+            title,
+            style: const TextStyle(fontSize: 18) ,
+          ),
+          onPressed: onButtonPressed,
+          style: ElevatedButton.styleFrom(
+            foregroundColor: textColor,
+            alignment: Alignment.center,
+            backgroundColor: color,
+            elevation: elevation,
+            textStyle: textStyle,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius),
+            ),
           ),
         ),
       ),
