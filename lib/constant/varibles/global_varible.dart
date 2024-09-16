@@ -10,3 +10,5 @@ String userpass = '';
 
 String currentUrl = "";
 String currentTitle = "";
+
+bool istracked = false;

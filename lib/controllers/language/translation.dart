@@ -42,7 +42,8 @@ class Translation extends Translations {
           "Password shouldn't be less than 6 letters or numbers",
           "idHint": "ID number not more than 15 digits",
           "error":"Error",
-          "fingerPrint":"Use fingerprint to log in"
+          "fingerPrint":"Use fingerprint to log in",
+          "locationPermaiton":"The request must be approved and the site activated. The site must be sent accurately",
         },
         'ar_EG': {
           "studentServices": "خدمات الطالب",
@@ -80,7 +81,8 @@ class Translation extends Translations {
           "password_form_hint": "يجب ألا تقل كلمة المرور عن 6 أحرف أو أرقام",
           "idHint": "رقم الهوية لا يزيد عن ١٥ رقم",
           "error":"خطأ",
-          "fingerPrint":"استخدم البصمه لتسجيل الدخول"
+          "fingerPrint":"استخدم البصمه لتسجيل الدخول",
+          "locationPermaiton":"يجب الموافقه علي الطلب وتفعيل الموقع لارسال الموقع الحالي بشكل دقيق",
         }
       };
 

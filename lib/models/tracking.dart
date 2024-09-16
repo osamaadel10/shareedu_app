@@ -1,7 +1,7 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names
 
 class TrackingModel {
-  late final String tokenId;
+  late String tokenId;
   late String operSys;
   late int userType;
   late int userLang;

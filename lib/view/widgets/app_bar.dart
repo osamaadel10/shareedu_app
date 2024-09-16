@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../constant/styles/colors.dart';
 import 'language_sheet.dart';
+import 'switch_button.dart';
 
 
 class AppbarW extends StatelessWidget implements PreferredSizeWidget {
@@ -71,10 +72,8 @@ class AppbarW extends StatelessWidget implements PreferredSizeWidget {
                   const Spacer(),
                   hasTrackingButton
                       ? Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child:Switch(value: true,activeColor: Colors.green,onChanged: (v){
-
-                    })
+                    padding: const EdgeInsets.only(left: 5,top: 10),
+                    child: Transform.scale(scale: 0.9,child: const SwitchButton(),)
                   )
                       : const SizedBox(),
                   hasLang
