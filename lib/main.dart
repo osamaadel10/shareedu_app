@@ -6,6 +6,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:shareedu_app/view/screens/splash/splash_screen.dart';
 import 'constant/varibles/global_varible.dart';
 import 'controllers/language/translation.dart';
+import 'package:flutter/services.dart';
+
 
 void main() async {
   await GetStorage.init();
@@ -17,7 +19,7 @@ void main() async {
   if (storedLang == null) {
     await box.write('lang', Get.deviceLocale.toString());
   }
-
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     translations: Translation(),

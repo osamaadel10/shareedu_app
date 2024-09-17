@@ -40,7 +40,7 @@ class SplashScreen extends StatelessWidget {
             duration: 600,
           );
         } else {
-          return Center(child: Text('No data'));
+          return const Center(child: Text('No data'));
         }
       },
     );

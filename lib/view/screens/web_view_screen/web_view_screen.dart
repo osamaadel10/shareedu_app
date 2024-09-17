@@ -72,7 +72,7 @@ class WebViewScreenState extends State<WebViewScreen> {
         appBar: AppbarW(
           title: widget.title,
           hasBackButton: false,
-          hasTrackingButton: LocalDatabase.getUserIndex() == 1,
+          hasTrackingButton: LocalDatabase.getUserIndex() == 4,
           hasLang: !widget.isGuestPage,
         ),
         body: Directionality(
