@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "732986456583",
-    "project_id": "alarqam-school",
-    "storage_bucket": "alarqam-school.appspot.com"
+    "project_number": "398714753568",
+    "project_id": "fir-aac0c",
+    "storage_bucket": "fir-aac0c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:732986456583:android:5edea02fc54bbeb23c88a2",
+        "mobilesdk_app_id": "1:398714753568:android:6481300b9cdfeac47ee245",
         "android_client_info": {
-          "package_name": "com.share.alarqamschool"
+          "package_name": "com.share.demo"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDNkPwLnUfdWntIeQmuALlvFmMMdVUjJ_8"
+          "current_key": "AIzaSyCo90KDZEGvxJs_f7Zj_BwseFONqb5mR9Q"
         }
       ],
       "services": {

@@ -1,6 +1,6 @@
 {
-    "name": "مدارس الأرقم الأهلية",
-    "short_name": "مدارس الأرقم الأهلية",
+    "name": "ShareEdu Demo",
+    "short_name": "ShareEdu Demo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

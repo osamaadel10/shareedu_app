@@ -2,9 +2,9 @@ import 'dart:io';
 import '../../data/local_database.dart';
 
 class AppUrls {
-  static const String _baseUrl = "https://alarqmschools.com/";
+  static const String _baseUrl = "https://demo.shareedu-lms.com/";
   static const String _guestBaseUrl =
-      "https://alarqmschools.com//MobileServices2022/VisitorServices";
+      "https://demo.shareedu-lms.com//MobileServices2022/VisitorServices";
   static final String _queryParams = "TokenId=$_tokenId&OperSys=$_operSys";
   static final String? _tokenId = LocalDatabase.getUserToken();
   static final String _operSys = Platform.isAndroid ? "android" : "ios";

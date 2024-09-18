@@ -16,7 +16,7 @@ class TrackingServices {
   LocationData? currentLocation;
 
   static Future<int?> tracking(TrackingModel trackingParameters) async {
-    const String baseUrl = "https://alarqmschools.com/";
+    const String baseUrl = "https://demo.shareedu-lms.com/";
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
 
@@ -46,7 +46,7 @@ class TrackingServices {
   }
 
   static Future<void> sendLocation(TrackingModel trackingModel) async {
-    const String baseUrl = "https://alarqmschools.com/";
+    const String baseUrl = "https://demo.shareedu-lms.com/";
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
     if (!kReleaseMode) {

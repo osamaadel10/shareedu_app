@@ -15,7 +15,7 @@ class AuthServices {
   static Future<int?> login(
     LoginModel loginParameters,
   ) async {
-    const String baseUrl = "https://alarqmschools.com/";
+    const String baseUrl = "https://demo.shareedu-lms.com/";
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
     if (!kReleaseMode) {
@@ -52,7 +52,7 @@ static Future enterWithFinger(
       userType: LocalDatabase.getUserIndex()??0,
       userLang: LocalDatabase.getLanguageCode(),
     );
-    const String baseUrl = "https://alarqmschools.com/";
+    const String baseUrl = "https://demo.shareedu-lms.com/";
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
     if (!kReleaseMode) {

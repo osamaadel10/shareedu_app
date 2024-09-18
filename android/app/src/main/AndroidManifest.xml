@@ -7,13 +7,13 @@
 
     <application
     
-        android:label="مدارس الأرقم الأهلية"
+        android:label="ShareEdu Demo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:enableOnBackInvokedCallback="true"> 
         <activity
             android:name="com.share.alarqam.MainActivity"
-            android:label="مدارس الأرقم الأهلية"
+            android:label="ShareEdu Demo"
             android:exported="true"
             android:launchMode="singleTop"
             android:taskAffinity=""
