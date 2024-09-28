@@ -23,10 +23,15 @@ class SplashScreen extends StatelessWidget {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (snapshot.hasData) {
           final hasFingerprint = snapshot.data ?? false;
-          final nextScreen = (LocalDatabase.isUserAuthenticated() && hasFingerprint)
-              ? const FingerAuth()
-              : const StartScreen();
-
+          Widget nextScreen = const StartScreen(); 
+          if( (LocalDatabase.isUserAuthenticated() && hasFingerprint)){
+             nextScreen = const FingerAuth();
+          }else if( LocalDatabase.isUserAuthenticated() && hasFingerprint== false)
+          {
+            nextScreen = getFirstScreen(LocalDatabase.getUserIndex());
+          }else{
+            nextScreen = const StartScreen();
+          }
           return AnimatedSplashScreen(
             backgroundColor: backgroundColor,
             splash: Image.asset(

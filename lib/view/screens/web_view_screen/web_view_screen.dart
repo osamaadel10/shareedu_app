@@ -45,6 +45,7 @@ class WebViewScreenState extends State<WebViewScreen> {
   @override
   void initState() {
     super.initState();
+    print(LocalDatabase.getUserToken());
     pullToRefreshController = PullToRefreshController(
       options: PullToRefreshOptions(
         color: primaryColor,
