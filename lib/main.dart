@@ -30,6 +30,9 @@ void main() async {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     translations: Translation(),
+    theme: ThemeData.light().copyWith(
+      scaffoldBackgroundColor: Colors.green
+    ),
     locale: lang,
     home: const MyApp(),
   ));

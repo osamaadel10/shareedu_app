@@ -45,7 +45,6 @@ class AuthServices {
 static Future enterWithFinger(
     EnterModel enterModel,
   ) async {
-    // print(object)
     final EnterModel enterModel = EnterModel(
       tokenId: LocalDatabase.getUserToken() ?? "",
       operSys: Platform.isAndroid ? "android" : "ios",

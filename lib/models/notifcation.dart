@@ -25,6 +25,7 @@ Future<bool> requestPermissionNotifcation()async
     FirebaseMessaging.onMessage.listen((RemoteMessage message){
           Get.snackbar('${message.notification!.title}', '${message.notification!.body}',backgroundColor:Colors.white);
     });
+    
   }
   return (settings.authorizationStatus == AuthorizationStatus.authorized);
 }
