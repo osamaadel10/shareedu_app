@@ -47,6 +47,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   local_auth: ^2.3.0
   location: ^7.0.0
+  flutter_local_notifications: ^17.2.3
   
 
 

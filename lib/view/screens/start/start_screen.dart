@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/view/screens/login/login_screen.dart';
-
 import '../../../constant/logos/company_logo.dart';
 import '../../../constant/logos/school_logo.dart';
 import '../../../constant/styles/colors.dart';
@@ -17,7 +16,7 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor,
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
@@ -25,7 +24,7 @@ class StartScreen extends StatelessWidget {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.07),
                 LogoSchool(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.6,
                     height: MediaQuery.of(context).size.height / 3.8),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.09,

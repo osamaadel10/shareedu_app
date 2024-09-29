@@ -25,17 +25,10 @@ void main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   if(await requestPermissionNotifcation())
   {
-  FirebaseMessaging.onBackgroundMessage(firebaseMessageinginBackground);
+    FirebaseMessaging.onBackgroundMessage(firebaseMessageinginBackground);
   }
-  runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: false,
-    translations: Translation(),
-    theme: ThemeData.light().copyWith(
-      scaffoldBackgroundColor: Colors.green
-    ),
-    locale: lang,
-    home: const MyApp(),
-  ));
+  
+  runApp(const MyApp()); 
 }
 
 class MyApp extends StatelessWidget {
@@ -47,8 +40,10 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return MaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
+          translations: Translation(),
+          locale: lang,
           home: child,
         );
       },

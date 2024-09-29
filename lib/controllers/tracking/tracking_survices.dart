@@ -15,36 +15,6 @@ class TrackingServices {
   Location location = Location();
   LocationData? currentLocation;
 
-  static Future<int?> tracking(TrackingModel trackingParameters) async {
-    const String baseUrl = "https://demo.shareedu-lms.com/";
-    final Dio dio = Dio();
-    dio.options.baseUrl = baseUrl;
-
-    if (!kReleaseMode) {
-      dio.interceptors.add(
-        PrettyDioLogger(
-          requestHeader: true,
-          requestBody: true,
-          responseBody: true,
-          responseHeader: true,
-          compact: true,
-        ),
-      );
-    }
-
-    try {
-      final res = await dio.request(
-        "grand/shareedulogin/UserloginSendNewMob.asp",
-        queryParameters: trackingParameters.toJson(),
-        options: Options(method: "POST"),
-      );
-      int? userIndex = int.tryParse(res.data) ?? 0;
-      return userIndex;
-    } catch (e) {
-      return null;
-    }
-  }
-
   static Future<void> sendLocation(TrackingModel trackingModel) async {
     const String baseUrl = "https://demo.shareedu-lms.com/";
     final Dio dio = Dio();
@@ -63,7 +33,7 @@ class TrackingServices {
 
     try {
       await dio.request(
-        "grand/shareedulogin/UserloginSendNewMob.asp",
+        "MobileServices2022/indexEmpTrack.asp",
         queryParameters: trackingModel.toJson(),
         options: Options(method: "POST"),
       );
@@ -73,7 +43,7 @@ class TrackingServices {
   }
 
   void startTracking() {
-     Timer.periodic(const Duration(seconds: 15), (Timer t) async {
+     Timer.periodic(const Duration(seconds: 10), (Timer t) async {
       if(istracked == false){t.cancel(); return;}
       await getLocation();
       if (currentLocation != null) {
