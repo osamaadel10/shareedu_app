@@ -24,8 +24,8 @@ class StartScreen extends StatelessWidget {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.07),
                 LogoSchool(
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    height: MediaQuery.of(context).size.height / 3.8),
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.height / 3.7),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.09,
                 ),

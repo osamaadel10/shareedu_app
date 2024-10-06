@@ -118,7 +118,7 @@ class WebViewScreenState extends State<WebViewScreen> {
                   uri.pathSegments.last.contains('.rar') ||
                   uri.host != "demo.shareedu-lms.com") {
                 await openLink(uri);
-                webViewController!.loadUrl(
+                webViewController!.loadUrl(  
                   urlRequest: URLRequest(url: currentUrl),
                 );
                 return NavigationActionPolicy.CANCEL;

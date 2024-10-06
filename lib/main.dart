@@ -8,7 +8,6 @@ import 'package:shareedu_app/view/screens/splash/splash_screen.dart';
 import 'constant/varibles/global_varible.dart';
 import 'controllers/language/translation.dart';
 import 'package:flutter/services.dart';
-
 import 'models/notifcation.dart';
 
 
@@ -33,7 +32,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
