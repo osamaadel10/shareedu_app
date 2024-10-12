@@ -65,152 +65,155 @@ class WebViewScreenState extends State<WebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppbarW(
-        title: widget.title,
-        hasBackButton: false,
-        hasTrackingButton: LocalDatabase.getUserIndex() == 4,
-        hasLang: !widget.isGuestPage,
-      ),
-      body: Stack(
-        children: [
-          InAppWebView(
-            initialUrlRequest: URLRequest(
-              url: Uri.parse(
-                "${widget.pageUrl}&UserLang=${LocalDatabase.getLanguageCode()}",
-              ),
-            ),
-            initialOptions: options,
-            pullToRefreshController: pullToRefreshController,
-            onWebViewCreated: (controller) {
-              webViewController = controller;
-            },
-            onLoadStart: (controller, url) {
-              setState(() {
-                loading = true; 
-              });
-            },
-            onLoadStop: (controller, url) async {
-              setState(() {
-                loading = false; 
-              });
-              pullToRefreshController.endRefreshing(); 
-            },
-            androidOnPermissionRequest: (controller, origin, resources) async {
-              return PermissionRequestResponse(
-                resources: resources,
-                action: PermissionRequestResponseAction.GRANT,
-              );
-            },
-            shouldOverrideUrlLoading: (controller, navigationAction) async {
-              Uri? currentUrl = await webViewController?.getUrl();
-              var uri = navigationAction.request.url!;
-              if (uri.pathSegments.last.contains('.docx') ||
-                  uri.pathSegments.last.contains('.pdf') ||
-                  uri.pathSegments.last.contains('.csv') ||
-                  uri.pathSegments.last.contains('.xlsx') ||
-                  uri.pathSegments.last.contains('.pptx') ||
-                  uri.pathSegments.last.contains('.txt') ||
-                  uri.pathSegments.last.contains('.jpg') ||
-                  uri.pathSegments.last.contains('.png') ||
-                  uri.pathSegments.last.contains('.zip') ||
-                  uri.pathSegments.last.contains('.rar') ||
-                  uri.host != "demo.shareedu-lms.com") {
-                await openLink(uri);
-                webViewController!.loadUrl(  
-                  urlRequest: URLRequest(url: currentUrl),
-                );
-                return NavigationActionPolicy.CANCEL;
-              } else if (uri.pathSegments.first == "DownloadFiles") {
-                await openLink(uri);
-                webViewController!.loadUrl(
-                  urlRequest: URLRequest(url: currentUrl),
-                );
-                return NavigationActionPolicy.CANCEL;
-              } else if (uri.host == "demo.shareedu-lms.com") {
-                return NavigationActionPolicy.ALLOW;
-              } else {
-                await openLink(uri);
-                webViewController!.loadUrl(
-                  urlRequest: URLRequest(url: currentUrl),
-                );
-              }
-              return NavigationActionPolicy.CANCEL;
-            },
-          ),
-          if (loading)
-            const Center(
-              child: CircularProgressIndicator(), 
-            ),
-        ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(6),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppbarW(
+          title: widget.title,
+          hasBackButton: false,
+          hasTrackingButton: LocalDatabase.getUserIndex() == 4,
+          hasLang: !widget.isGuestPage,
+        ),
+        body: Stack(
           children: [
-            InkWell(
-              onTap: () => _doAction(2),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  widget.isGuestPage
-                      ? Icon(
-                          Icons.login_rounded,
-                          color: const Color.fromARGB(255, 120, 120, 120),
-                          size: 35.sp,
-                        )
-                      : Icon(
-                          Icons.logout_rounded,
-                          color: const Color.fromARGB(255, 120, 120, 120),
-                          size: 35.sp,
-                        ),
-                  const SizedBox(height: 3),
-                  Text(
-                    widget.isGuestPage ? 'login'.tr : 'logout'.tr,
-                    style: TextStyle(fontSize: 12.sp),
-                  ),
-                ],
+            InAppWebView(
+              initialUrlRequest: URLRequest(
+                url: Uri.parse(
+                  "${widget.pageUrl}&UserLang=${LocalDatabase.getLanguageCode()}",
+                ),
               ),
+              initialOptions: options,
+              pullToRefreshController: pullToRefreshController,
+              onWebViewCreated: (controller) {
+                webViewController = controller;
+              },
+              onLoadStart: (controller, url) {
+                setState(() {
+                  loading = true;
+                });
+              },
+              onLoadStop: (controller, url) async {
+                setState(() {
+                  loading = false;
+                });
+                pullToRefreshController.endRefreshing();
+              },
+              androidOnPermissionRequest: (controller, origin, resources) async {
+                return PermissionRequestResponse(
+                  resources: resources,
+                  action: PermissionRequestResponseAction.GRANT,
+                );
+              },
+              shouldOverrideUrlLoading: (controller, navigationAction) async {
+                Uri? currentUrl = await webViewController?.getUrl();
+                var uri = navigationAction.request.url!;
+                if (uri.pathSegments.last.contains('.docx') ||
+                    uri.pathSegments.last.contains('.pdf') ||
+                    uri.pathSegments.last.contains('.csv') ||
+                    uri.pathSegments.last.contains('.xlsx') ||
+                    uri.pathSegments.last.contains('.pptx') ||
+                    uri.pathSegments.last.contains('.txt') ||
+                    uri.pathSegments.last.contains('.jpg') ||
+                    uri.pathSegments.last.contains('.png') ||
+                    uri.pathSegments.last.contains('.zip') ||
+                    uri.pathSegments.last.contains('.rar') ||
+                    uri.host != "demo.shareedu-lms.com") {
+                  await openLink(uri);
+                  webViewController!.loadUrl(
+                    urlRequest: URLRequest(url: currentUrl),
+                  );
+                  return NavigationActionPolicy.CANCEL;
+                } else if (uri.pathSegments.first == "DownloadFiles") {
+                  await openLink(uri);
+                  webViewController!.loadUrl(
+                    urlRequest: URLRequest(url: currentUrl),
+                  );
+                  return NavigationActionPolicy.CANCEL;
+                } else if (uri.host == "demo.shareedu-lms.com") {
+                  return NavigationActionPolicy.ALLOW;
+                } else {
+                  await openLink(uri);
+                  webViewController!.loadUrl(
+                    urlRequest: URLRequest(url: currentUrl),
+                  );
+                }
+                return NavigationActionPolicy.CANCEL;
+              },
             ),
-            InkWell(
-              onTap: () => _doAction(1),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.home,
-                    color: primaryColor,
-                    size: 40.sp,
-                  ),
-                  const SizedBox(height: 3),
-                  Text(
-                    'main'.tr,
-                    style: TextStyle(fontSize: 12.sp),
-                  ),
-                ],
+            if (loading)
+              const Center(
+                child: CircularProgressIndicator(),
               ),
-            ),
-            InkWell(
-              onTap: () => _doAction(0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.replay,
-                    color: const Color.fromARGB(255, 120, 120, 120),
-                    size: 35.sp,
-                  ),
-                  const SizedBox(height: 3),
-                  Text(
-                    'back'.tr,
-                    style: TextStyle(fontSize: 12.sp),
-                  ),
-                ],
-              ),
-            ),
           ],
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () => _doAction(2),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    widget.isGuestPage
+                        ? Icon(
+                            Icons.login_rounded,
+                            color: const Color.fromARGB(255, 120, 120, 120),
+                            size: 35.sp,
+                          )
+                        : Icon(
+                            Icons.logout_rounded,
+                            color: const Color.fromARGB(255, 120, 120, 120),
+                            size: 35.sp,
+                          ),
+                    const SizedBox(height: 3),
+                    Text(
+                      widget.isGuestPage ? 'login'.tr : 'logout'.tr,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ],
+                ),
+              ),
+              InkWell(
+                onTap: () => _doAction(1),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.home,
+                      color: primaryColor,
+                      size: 40.sp,
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      'main'.tr,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ],
+                ),
+              ),
+              InkWell(
+                onTap: () => _doAction(0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.replay,
+                      color: const Color.fromARGB(255, 120, 120, 120),
+                      size: 35.sp,
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      'back'.tr,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
