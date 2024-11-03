@@ -4,12 +4,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shareedu_app/controllers/send_location/send_location_survices.dart';
 import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/view/screens/login/login_screen.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
 import 'package:shareedu_app/view/widgets/app_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constant/styles/colors.dart';
+import '../../../constant/varibles/global_varible.dart';
 import '../../../controllers/authServices/auth_services.dart';
 import '../../widgets/dialogs.dart';
 
@@ -99,7 +101,8 @@ class WebViewScreenState extends State<WebViewScreen> {
                 });
                 pullToRefreshController.endRefreshing();
               },
-              androidOnPermissionRequest: (controller, origin, resources) async {
+              androidOnPermissionRequest:
+                  (controller, origin, resources) async {
                 return PermissionRequestResponse(
                   resources: resources,
                   action: PermissionRequestResponseAction.GRANT,
@@ -108,6 +111,17 @@ class WebViewScreenState extends State<WebViewScreen> {
               shouldOverrideUrlLoading: (controller, navigationAction) async {
                 Uri? currentUrl = await webViewController?.getUrl();
                 var uri = navigationAction.request.url!;
+                if (uri.pathSegments.contains('AutoCall.asp') ||
+                    uri.pathSegments.contains('AutoCallin.asp')) {
+                  setState(() {
+                    issendlocation = true;
+                  });
+                  send_location_Services().startsend();
+                } else{
+                  setState(() {
+                    issendlocation = false;
+                  });
+                }
                 if (uri.pathSegments.last.contains('.docx') ||
                     uri.pathSegments.last.contains('.pdf') ||
                     uri.pathSegments.last.contains('.csv') ||
@@ -245,6 +259,9 @@ class WebViewScreenState extends State<WebViewScreen> {
         break;
       case 0:
         if (await webViewController!.canGoBack()) {
+          setState(() {
+            issendlocation = false;
+          });
           webViewController!.goBack();
         } else {
           if (widget.isGuestPage) {

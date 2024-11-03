@@ -12,3 +12,4 @@ String currentUrl = "";
 String currentTitle = "";
 
 bool istracked = false;
+bool issendlocation = false;

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -7,14 +6,15 @@ import 'package:location/location.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shareedu_app/constant/varibles/global_varible.dart';
 import 'package:shareedu_app/data/local_database.dart';
-import 'package:shareedu_app/models/tracking.dart';
+import 'package:shareedu_app/models/send_location.dart';
 
-class TrackingServices {
+// ignore: camel_case_types
+class send_location_Services {
   Timer? timer;
   Location location = Location();
   LocationData? currentLocation;
 
-  static Future<void> sendLocation(TrackingModel trackingModel) async {
+  static Future<void> sendLocation(SendLocationModel send_location) async {
     const String baseUrl = "https://demo.shareedu-lms.com/";
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
@@ -32,8 +32,8 @@ class TrackingServices {
 
     try {
       await dio.request(
-        "MobileServices2022/indexEmpTrack.asp",
-        queryParameters: trackingModel.toJson(),
+        "MobileServices2022/AutoCallGetLocation.asp",
+        queryParameters: send_location.toJson(),
         options: Options(method: "POST"),
       );
     } catch (e) {
@@ -41,17 +41,41 @@ class TrackingServices {
     }
   }
 
-  void startTracking() {
-     Timer.periodic(const Duration(seconds: 10), (Timer t) async {
-      if(istracked == false){t.cancel(); return;}
+  Future<void> startsend() async {
+    PermissionStatus permissionGranted;
+    bool serviceEnabled;
+
+    serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) return;
+    }
+
+    permissionGranted = await location.hasPermission();
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != PermissionStatus.granted) return;
+    }
       await getLocation();
       if (currentLocation != null) {
         await sendLocation(
-          TrackingModel(
+          SendLocationModel(
               tokenId: LocalDatabase.getUserToken() ?? "",
-              operSys: Platform.isAndroid ? "android" : "ios",
-              userType: LocalDatabase.getUserIndex() ?? 0,
-              userLang: LocalDatabase.getLanguageCode(),
+              Lang: currentLocation!.longitude ?? 0.0,
+              Lat: currentLocation!.latitude ?? 0.0),
+        );
+      }
+    Timer.periodic(const Duration(seconds: 20), (Timer t) async {
+      if (issendlocation == false) {
+        t.cancel();
+        return;
+      }
+      await getLocation();
+  
+      if (currentLocation != null) {
+        await sendLocation(
+          SendLocationModel(
+              tokenId: LocalDatabase.getUserToken() ?? "",
               Lang: currentLocation!.longitude ?? 0.0,
               Lat: currentLocation!.latitude ?? 0.0),
         );
