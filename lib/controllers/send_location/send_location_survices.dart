@@ -10,7 +10,7 @@ import 'package:shareedu_app/models/send_location.dart';
 
 import '../../main.dart';
 
-// ignore: camel_case_types
+// ignore: camel_case_type
 class send_location_Services {
   Timer? timer;
   Location location = Location();
@@ -47,33 +47,25 @@ class send_location_Services {
     PermissionStatus permissionGranted;
     bool serviceEnabled;
 
-    serviceEnabled = await location.serviceEnabled();
-    if (!serviceEnabled) {
-      serviceEnabled = await location.requestService();
-      if (!serviceEnabled) return;
-    }
 
     permissionGranted = await location.hasPermission();
     if (permissionGranted == PermissionStatus.denied) {
       permissionGranted = await location.requestPermission();
       if (permissionGranted != PermissionStatus.granted) return;
     }
+    serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) return;
+    }
       await getLocation();
       if (currentLocation != null) {
-        await sendLocation(
-          SendLocationModel(
-              tokenId: LocalDatabase.getUserToken() ?? "",
-              Lang: currentLocation!.longitude ?? 0.0,
-              Lat: currentLocation!.latitude ?? 0.0),
-        );
-      }
     Timer.periodic(const Duration(seconds: 20), (Timer t) async {
       if (issendlocation == false) {
         t.cancel();
         return;
       }
       await getLocation();
-  
       if (currentLocation != null) {
         await sendLocation(
           SendLocationModel(
@@ -82,7 +74,7 @@ class send_location_Services {
               Lat: currentLocation!.latitude ?? 0.0),
         );
       }
-    });
+    });}
   }
 
   Future<void> getLocation() async {

@@ -47,9 +47,9 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   local_auth: ^2.3.0
   location: ^7.0.0
+  cloud_firestore: ^5.4.4
   flutter_local_notifications: ^17.2.3
   webview_flutter: ^4.2.2
-  cloud_firestore: ^5.4.4
   
 
 
