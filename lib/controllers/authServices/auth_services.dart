@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:shareedu_app/main.dart';
 import 'package:shareedu_app/models/enterWithFinger.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
 import 'package:shareedu_app/view/widgets/top_loader.dart';
@@ -15,7 +16,7 @@ class AuthServices {
   static Future<int?> login(
     LoginModel loginParameters,
   ) async {
-    const String baseUrl = "https://demo.shareedu-lms.com/";
+    final String baseUrl = mainUrl;
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
     if (!kReleaseMode) {
@@ -51,7 +52,7 @@ static Future enterWithFinger(
       userType: LocalDatabase.getUserIndex()??0,
       userLang: LocalDatabase.getLanguageCode(),
     );
-    const String baseUrl = "https://demo.shareedu-lms.com/";
+    final String baseUrl = mainUrl;
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
     if (!kReleaseMode) {

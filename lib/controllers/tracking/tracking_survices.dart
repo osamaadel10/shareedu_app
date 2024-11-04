@@ -9,13 +9,15 @@ import 'package:shareedu_app/constant/varibles/global_varible.dart';
 import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/models/tracking.dart';
 
+import '../../main.dart';
+
 class TrackingServices {
   Timer? timer;
   Location location = Location();
   LocationData? currentLocation;
 
   static Future<void> sendLocation(TrackingModel trackingModel) async {
-    const String baseUrl = "https://demo.shareedu-lms.com/";
+    final String baseUrl = mainUrl;
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
     if (!kReleaseMode) {

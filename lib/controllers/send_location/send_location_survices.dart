@@ -8,6 +8,8 @@ import 'package:shareedu_app/constant/varibles/global_varible.dart';
 import 'package:shareedu_app/data/local_database.dart';
 import 'package:shareedu_app/models/send_location.dart';
 
+import '../../main.dart';
+
 // ignore: camel_case_types
 class send_location_Services {
   Timer? timer;
@@ -15,7 +17,7 @@ class send_location_Services {
   LocationData? currentLocation;
 
   static Future<void> sendLocation(SendLocationModel send_location) async {
-    const String baseUrl = "https://demo.shareedu-lms.com/";
+    final String baseUrl = mainUrl;
     final Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
     if (!kReleaseMode) {

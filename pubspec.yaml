@@ -49,6 +49,7 @@ dependencies:
   location: ^7.0.0
   flutter_local_notifications: ^17.2.3
   webview_flutter: ^4.2.2
+  cloud_firestore: ^5.4.4
   
 
 

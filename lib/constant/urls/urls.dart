@@ -1,10 +1,11 @@
 import 'dart:io';
 import '../../data/local_database.dart';
+import '../../main.dart';
 
 class AppUrls {
-  static const String _baseUrl = "https://demo.shareedu-lms.com/";
-  static const String _guestBaseUrl =
-      "https://demo.shareedu-lms.com//MobileServices2022/VisitorServices";
+  static final String _baseUrl = mainUrl;
+  static final String _guestBaseUrl =
+      "${_baseUrl}/MobileServices2022/VisitorServices";
   static final String _queryParams = "TokenId=$_tokenId&OperSys=$_operSys";
   static final String? _tokenId = LocalDatabase.getUserToken();
   static final String _operSys = Platform.isAndroid ? "android" : "ios";

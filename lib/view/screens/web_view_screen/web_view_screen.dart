@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shareedu_app/controllers/send_location/send_location_survices.dart';
 import 'package:shareedu_app/data/local_database.dart';
+import 'package:shareedu_app/main.dart';
 import 'package:shareedu_app/view/screens/login/login_screen.dart';
 import 'package:shareedu_app/view/screens/start/start_screen.dart';
 import 'package:shareedu_app/view/widgets/app_bar.dart';
@@ -132,7 +133,7 @@ class WebViewScreenState extends State<WebViewScreen> {
                     uri.pathSegments.last.contains('.png') ||
                     uri.pathSegments.last.contains('.zip') ||
                     uri.pathSegments.last.contains('.rar') ||
-                    uri.host != "demo.shareedu-lms.com") {
+                    uri.host != partOfmainUrl) {
                   await openLink(uri);
                   webViewController!.loadUrl(
                     urlRequest: URLRequest(url: currentUrl),
@@ -144,7 +145,7 @@ class WebViewScreenState extends State<WebViewScreen> {
                     urlRequest: URLRequest(url: currentUrl),
                   );
                   return NavigationActionPolicy.CANCEL;
-                } else if (uri.host == "demo.shareedu-lms.com") {
+                } else if (uri.host == partOfmainUrl ) {
                   return NavigationActionPolicy.ALLOW;
                 } else {
                   await openLink(uri);

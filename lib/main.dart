@@ -9,7 +9,11 @@ import 'constant/varibles/global_varible.dart';
 import 'controllers/language/translation.dart';
 import 'package:flutter/services.dart';
 import 'models/notifcation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+
+String mainUrl = "https://demo.shareedu-lms.com/";
+String partOfmainUrl = "demo.shareedu-lms.com";
 
 void main() async {
   await GetStorage.init();
@@ -21,6 +25,11 @@ void main() async {
   if (storedLang == null) {
     await box.write('lang', Get.deviceLocale.toString());
   }
+  
+  await FirebaseFirestore.instance.collection('urls').doc('urlss').snapshots().listen((snapshot){
+    var data = snapshot.data();
+    mainUrl = data?['mainUrl']??mainUrl;
+    partOfmainUrl = data?['partofmainUrl']??partOfmainUrl;});
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   if(await requestPermissionNotifcation())
   {
